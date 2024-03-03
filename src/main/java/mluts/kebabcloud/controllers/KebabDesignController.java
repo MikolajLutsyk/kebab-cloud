@@ -1,12 +1,14 @@
 package mluts.kebabcloud.controllers;
 
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import mluts.kebabcloud.domain.Ingredient;
 import mluts.kebabcloud.domain.Kebab;
 import mluts.kebabcloud.domain.KebabOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -53,8 +55,13 @@ public class KebabDesignController {
     }
 
     @PostMapping
-    public String processKebab(Kebab kebab,
+    public String processKebab(@Valid Kebab kebab, Errors errors,
                                @ModelAttribute KebabOrder kebabOrder){
+
+        if (errors.hasErrors()){
+            return "design";
+        }
+
         kebabOrder.addKebab(kebab);
         log.info("Processing kebab: {}", kebab);
         return "redirect:/orders/current";

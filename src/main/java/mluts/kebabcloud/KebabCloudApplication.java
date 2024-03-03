@@ -8,5 +8,7 @@ public class KebabCloudApplication {
     public static void main(String[] args) {
         SpringApplication.run(KebabCloudApplication.class, args);
     }
-
 }
+
+//todo
+//add validation to kebab design
