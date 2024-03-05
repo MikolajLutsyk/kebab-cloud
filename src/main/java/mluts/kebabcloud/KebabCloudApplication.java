@@ -11,4 +11,6 @@ public class KebabCloudApplication {
 }
 
 //todo
-//add validation to kebab design
+//fix null id values when inserting data
+//add home controller as viewcontroller to webconfig
+
