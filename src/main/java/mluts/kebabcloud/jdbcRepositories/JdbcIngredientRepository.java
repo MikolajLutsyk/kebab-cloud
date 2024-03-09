@@ -5,7 +5,6 @@ import mluts.kebabcloud.jdbcRepositoryInterfaces.IngredientRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;

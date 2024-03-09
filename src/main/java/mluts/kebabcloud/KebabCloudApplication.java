@@ -14,3 +14,8 @@ public class KebabCloudApplication {
 //fix null id values when inserting data
 //add home controller as viewcontroller to webconfig
 
+//websites to apply for jobs`
+//nofluffjobs
+//bulldogjobs
+//justjoin.it
+
