@@ -9,5 +9,9 @@
 <body>
     <h1>Welcome To...</h1>
     <img th:src="@{/images/kebab.png}" alt="kebab_img"/>
+    <form method="POST" th:action="@{/logout}">
+        <input type="submit" value="Logout">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+    </form>
 </body>
 </html>

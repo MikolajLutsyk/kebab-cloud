@@ -7,6 +7,12 @@
     <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
+
+<form method="POST" th:action="@{/logout}">
+    <input type="submit" value="Logout">
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+</form>
+
 <h1>Design your kebab!</h1>
 <img th:src="@{/images/kebab.png}" alt="kebab image" height="100" width="100">
 
@@ -69,6 +75,8 @@
     <input type="text" th:field="*{name}"/>
     <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</span>
     <br>
+
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}">
 
     <button>Submit</button>
 </form>

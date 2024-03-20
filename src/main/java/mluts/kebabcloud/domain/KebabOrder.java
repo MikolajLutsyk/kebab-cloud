@@ -24,6 +24,8 @@ public class KebabOrder implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    private Users user;
 
     private Date placedAt = new Date();
 

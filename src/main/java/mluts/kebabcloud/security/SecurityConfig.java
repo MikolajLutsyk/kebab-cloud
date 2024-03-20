@@ -41,7 +41,11 @@ public class SecurityConfig {
                 .loginPage("/login")
                 .defaultSuccessUrl("/design", true)
                 .and()
-                .csrf().disable()
+                .oauth2Login().loginPage("/login")
+                .and()
+                .logout().logoutSuccessUrl("/login")
+                .and()
+//                .csrf().disable()
                 .build();
     }
 

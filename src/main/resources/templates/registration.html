@@ -35,6 +35,8 @@
         <label for="phone">Phone: </label>
         <input type="text" name="phoneNumber" id="phone">
 
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}">
+
         <input type="submit" value="Register">
     </form>
 </body>
