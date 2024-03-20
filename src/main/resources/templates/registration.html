@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kebab Cloud</title>
+</head>
+<body>
+    <h1>Register</h1>
+
+    <form method="POST" th:action = "@{/register}" id="registerForm">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username"><br>
+
+        <label for="password">Password: </label>
+        <input type="text" name="password" id="password"><br>
+
+        <label for="confirm">Confirm password: </label>
+        <input type="text" name="confirm" id="confirm"><br>
+
+        <label for="fullname">Full name: </label>
+        <input type="text" name="fullname" id="fullname"><br>
+
+        <label for="street">Street: </label>
+        <input type="text" name="street" id="street"><br>
+
+        <label for="city">City: </label>
+        <input type="text" name="city" id="city"><br>
+
+        <label for="country">Country: </label>
+        <input type="text" name="country" id="country"><br>
+
+        <label for="postalCode">Postal Code</label>
+        <input type="text" name="postalCode" id="postalCode">
+
+        <label for="phone">Phone: </label>
+        <input type="text" name="phoneNumber" id="phone">
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

@@ -1,15 +1,16 @@
 package mluts.kebabcloud;
 
 import mluts.kebabcloud.domain.Ingredient;
-import mluts.kebabcloud.jdbcRepositoryInterfaces.IngredientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import mluts.kebabcloud.interfaces.IngredientRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class KebabCloudApplication {
+public class KebabCloudApplication implements WebMvcConfigurer {
 
     @Bean
     public CommandLineRunner dataLoader(IngredientRepository repo){
@@ -30,11 +31,16 @@ public class KebabCloudApplication {
     public static void main(String[] args) {
         SpringApplication.run(KebabCloudApplication.class, args);
     }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("home");
+        registry.addViewController("/login");
+    }
 }
 
 //todo
 //add home controller as viewcontroller to webconfig
-//implement spring data jdbc and post it on github
 
 //websites to apply for jobs`
 //nofluffjobs

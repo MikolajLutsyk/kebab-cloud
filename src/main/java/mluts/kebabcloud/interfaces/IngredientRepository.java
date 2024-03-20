@@ -1,4 +1,4 @@
-package mluts.kebabcloud.jdbcRepositoryInterfaces;
+package mluts.kebabcloud.interfaces;
 
 import mluts.kebabcloud.domain.Ingredient;
 import org.springframework.data.repository.CrudRepository;
