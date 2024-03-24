@@ -9,6 +9,23 @@ spring:
             client:
                 registration:
                     facebook:
-                        client-id: <facebook client id>
+                        client-id: <facebook client id> #application not registered on facebook yet
                         client-secret: <facebook client secret>
                         scope: email, public_profile
+server:
+    port: 8080
+
+logging:
+    file:
+      path: /var/logs/
+      name: KebabCloud.log
+    level:
+        root: info
+        org.springframework.security: DEBUG
+
+kebab:
+  orders:
+      page-size: 10
+
+
+#for some reason cant see pagesize attribute

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kebab Cloud</title>
+</head>
+<body>
+    <p>List</p>
+
+    <div th:each="order : ${orders}">
+        <span th:text="${order.getDeliveryName()}">ORDER</span>
+        <br>
+    </div>
+</body>
+</html>
