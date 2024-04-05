@@ -12,6 +12,9 @@ spring:
                         client-id: <facebook client id> #application not registered on facebook yet
                         client-secret: <facebook client secret>
                         scope: email, public_profile
+    data:
+        rest:
+            base-path: /data-api
 server:
     port: 8080
 
@@ -26,6 +29,3 @@ logging:
 kebab:
   orders:
       page-size: 10
-
-
-#for some reason cant see pagesize attribute

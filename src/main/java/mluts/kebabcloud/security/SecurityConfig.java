@@ -4,6 +4,7 @@ import mluts.kebabcloud.domain.Users;
 import mluts.kebabcloud.interfaces.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -36,6 +37,8 @@ public class SecurityConfig {
         return http.authorizeRequests()
                 .requestMatchers("/design", "/orders").access("hasRole('USER')")
                 .requestMatchers("/", "/**").access("permitAll()")
+                .requestMatchers(HttpMethod.POST, "/api/ingredients").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/ingredients/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -45,7 +48,7 @@ public class SecurityConfig {
                 .and()
                 .logout().logoutSuccessUrl("/login")
                 .and()
-//                .csrf().disable()
+                //.csrf().disable()
                 .build();
     }
 
@@ -53,4 +56,6 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().requestMatchers("/h2-console/**");
     }
+
+
 }
