@@ -12,6 +12,10 @@ spring:
                         client-id: <facebook client id> #application not registered on facebook yet
                         client-secret: <facebook client secret>
                         scope: email, public_profile
+
+            resourceserver:
+                jwt:
+                    jwk-set-uri: http://localhost:9000/oauth2/jwks
     data:
         rest:
             base-path: /data-api

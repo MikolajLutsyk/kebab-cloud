@@ -37,8 +37,8 @@ public class SecurityConfig {
         return http.authorizeRequests()
                 .requestMatchers("/design", "/orders").access("hasRole('USER')")
                 .requestMatchers("/", "/**").access("permitAll()")
-                .requestMatchers(HttpMethod.POST, "/api/ingredients").hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE, "/api/ingredients/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/ingredients").hasAuthority("SCOPE_writeIngredients")
+                .requestMatchers(HttpMethod.DELETE, "/api//ingredients").hasAuthority("SCOPE_deleteIngredients")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -48,6 +48,7 @@ public class SecurityConfig {
                 .and()
                 .logout().logoutSuccessUrl("/login")
                 .and()
+                .oauth2ResourceServer(oauth2 -> oauth2.jwt())
                 //.csrf().disable()
                 .build();
     }
